@@ -7,7 +7,8 @@ Bluetooth_Phone.o : Bluetooth_Phone.c Bluetooth_Phone.h Bluetooth_Pi0W.h
 Bluetooth_Pi0W.o : Bluetooth_Pi0W.c Bluetooth_Pi0W.h VoiceCommands.h
 Button_ISR.o : Button_ISR.c Button_ISR.h AD_HOC.h Bluetooth_Pi0W.h VoiceCommands.h
 main.o : main.c main.h AD_HOC.h Bluetooth_Phone.h Bluetooth_Pi0W.h Button_ISR.h OBDII.h VoiceCommands.h
-OBDII.o : OBDII.c OBDII.h Bluetooth_Pi0W.h
+OBDII.o : OBDII.c OBDII.h Bluetooth_Pi0W.h SerialDriver.h
+SerialDriver.o : SerialDriver.c SerialDriver.h
 VoiceCommands.o : VoiceCommands.c VoiceCommands.h Bluetooth_Phone.h Bluetooth_Pi0W.h AD_HOC.h
 
 ###########################################################################################
@@ -23,8 +24,8 @@ all : Bike
 
 # An explicit rule to link each of the projects that we will building (All the .o files) #
 
-Bike : AD_HOC.o Bluetooth_Phone.o Bluetooth_Pi0W.o Button_ISR.o main.o OBDII.o VoiceCommands.o
-	$(CC) $(LINK) -o Bike AD_HOC.o Bluetooth_Phone.o Bluetooth_Pi0W.o Button_ISR.o main.o OBDII.o VoiceCommands.o
+Bike : AD_HOC.o Bluetooth_Phone.o Bluetooth_Pi0W.o Button_ISR.o main.o OBDII.o SerialDriver.o VoiceCommands.o
+	$(CC) $(LINK) -o Bike AD_HOC.o Bluetooth_Phone.o Bluetooth_Pi0W.o Button_ISR.o main.o OBDII.o SerialDriver.o VoiceCommands.o
 
 ##########################################################################################
 # Implicit rules for compilation
