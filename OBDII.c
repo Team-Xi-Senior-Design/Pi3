@@ -19,7 +19,7 @@
 
 const char PORTNAME[] = "/dev/ttyUSB0";
 
-const char OBD2_INIT[] = "AT SP 0\rE0\rR0\r";
+const char OBD2_INIT[] = "Z\rAT SP 0\rE0\rR0\r";
 
 static int SerialPortID;
 static char * Buffer;
@@ -30,12 +30,41 @@ static char * Buffer;
  * @return: Fuel level of the vehicle (0-100)
  */
 int getFuelLevel(){
-/*	write(SerialPortID, "012F\r",6);
-	while (read(SerialPortID,Buffer,BUFFER_SIZE) == 0);
-	// (100A) / 255
-	Buffer[8] = 0;
-	return atoi(&Buffer[4]);
-*/return 100;
+	// send the command to the ELM 327 to get fuel level
+	write(SerialPortID, "012F\r",5);
+
+	// setup some variables for making sure reids are good
+	int bytesRead = 0;
+	int responseRecieved = 0;
+	int returnValue;
+
+	// if the response hasn't finished
+	while (!responseRecieved) {
+		// wait a second for the hardware to get some data
+		usleep(20000);
+		// increase the bytes read, and read the serial data into the buffer
+		bytesRead += read(SerialPortID, &Buffer[bytesRead], BUFFER_SIZE);
+		// if we read something
+		if (bytesRead > 0) {
+			// check to see if the end of the transmission was recieved, and if it was, exit
+			responseRecieved = Buffer[bytesRead-1]!='\r';
+		}
+	}
+
+	// A*100/255
+	returnValue = (strtol(&Buffer[11],NULL,16) * 100)/255;
+
+	// clear the buffer
+	memset(Buffer,0,bytesRead);
+
+	// wait a bit
+	usleep(2000);
+	// clear the serial data
+	while(read(SerialPortID, &Buffer[bytesRead], BUFFER_SIZE)!=0);
+	// clear the buffer
+	memset(Buffer,0,bytesRead);
+
+	return returnValue;
 }
 
 /*
@@ -44,10 +73,11 @@ int getFuelLevel(){
  * @return: Rotations per minute of the pistons in the engine
  */
 int getRPM(){
-
 	write(SerialPortID, "010C\r",5);
 	int bytesRead = 0;
 	int responseRecieved = 0;
+	int returnValue;
+
 	while (!responseRecieved) {
 		usleep(20000);
 		bytesRead += read(SerialPortID, &Buffer[bytesRead], BUFFER_SIZE);
@@ -55,27 +85,17 @@ int getRPM(){
 			responseRecieved = Buffer[bytesRead-1]!='\r';
 		}
 	}
-	printf("Bytes Read: %d\n",bytesRead);
-	printf("%s\n",Buffer);
-
-	memset(Buffer,0,bytesRead);
-
-	responseRecieved = 0;
-	bytesRead = 0;
-	while (!responseRecieved) {
-		usleep(2000);
-		bytesRead += read(SerialPortID, &Buffer[bytesRead], BUFFER_SIZE);
-		if (bytesRead > 0) {
-			responseRecieved = Buffer[bytesRead-1] != '\r';
-		}
-	}
-	printf("Bytes Read: %d\n",bytesRead);
-	printf("%s\n",Buffer);
-	memset(Buffer,0,bytesRead);
 
 	// (256A + B) / 4
-	Buffer[7] = 0;
-	return atoi(&Buffer[4]);
+	returnValue = ((256*strtol(&Buffer[11],NULL,16))+strtol(&Buffer[14],NULL,16))/4;
+
+	memset(Buffer,0,bytesRead);
+
+	usleep(2000);
+	while(read(SerialPortID, &Buffer[bytesRead], BUFFER_SIZE)!=0);
+	memset(Buffer,0,bytesRead);
+
+	return returnValue;
 }
 
 /*
@@ -84,15 +104,29 @@ int getRPM(){
  * @return: Ground Speed in MPH
  */
 int getSpeed(){
-/**
-	write(SerialPortID, "010D",5);
-	usleep((4*8)*200);
-	read(SerialPortID, Buffer, BUFFER_SIZE);
-	Buffer[7] = 0;
+	write(SerialPortID, "010D\r",5);
+	int bytesRead = 0;
+	int responseRecieved = 0;
+	int returnValue;
+
+	while (!responseRecieved) {
+		usleep(20000);
+		bytesRead += read(SerialPortID, &Buffer[bytesRead], BUFFER_SIZE);
+		if (bytesRead > 0) {
+			responseRecieved = Buffer[bytesRead-1]!='\r';
+		}
+	}
 	// A
-	int speed = atoi(&Buffer[4]) >> 24;
-	return speed;
-*/ return 54;
+	returnValue = strtol(&Buffer[11],NULL,16);
+
+	memset(Buffer,0,bytesRead);
+
+	usleep(2000);
+	while(read(SerialPortID, &Buffer[bytesRead], BUFFER_SIZE)!=0);
+	memset(Buffer,0,bytesRead);
+
+	return returnValue;
+
 }
 
 /*
