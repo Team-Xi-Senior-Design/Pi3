@@ -25,5 +25,6 @@ int getFuelLevel(void);
 int getRPM(void);
 int getSpeed(void);
 void initOBDII(void);
+void freeOBDII(void);
 
 #endif

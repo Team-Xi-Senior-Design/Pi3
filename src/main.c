@@ -7,6 +7,10 @@
 
 int main(int argc, char* argv[]){
 
-  printf("Why Hello There\n");
-  return (0);
+	initOBDII();
+	printf("Fuel Level: %d\n",getFuelLevel());
+	printf("RPM: %d\n", getRPM());
+	printf("Ground Speed [km/h]: %d\n", getSpeed());
+	freeOBDII();
+	return (0);
 }
