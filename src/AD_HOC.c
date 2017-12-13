@@ -15,9 +15,11 @@
 static struct sockaddr_in thisBoard;
 static struct sockaddr_in broadcastAddr;
 static int thisSockFd;
-uint8_t* broadcastIP; /* IP broadcast address */
-static uint8[]*  send_buffer;
-stacic uint8[]*  recv_buffer;
+char* broadcastIP; /* IP broadcast address */
+static char*  send_buffer;
+static char*  recv_buffer ;
+static const RESV_BUF_SIZE =  100;
+static const SEND_BUF_SIZE =  100;
 
 /*
  * Description:
@@ -41,7 +43,9 @@ void initAD_HOC(){
     int broadcastOpt;            /* Socket opt to set permission to broadcast */
     uint32_t sendStringLen;
 
-    recv_buffer(uint8_t *) malloc(RESV_BUF_SIZE);
+    recv_buffer = (char *) malloc(RESV_BUF_SIZE);
+    send_buffer = (char *) malloc(SEND_BUF_SIZE);
+
     if((thisSockFd = socket(AF_INET,SOCK_DGRAM,IPPROTO_UDP)) <0){
         printf("socket 1 creation failed\n");
     }
