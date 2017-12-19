@@ -9,11 +9,11 @@
 #define MAXRECVSTRING 255  /* Longest string to receive */
 #define BROADCAST_PORT 25565
 
-int sock;                         /* Socket */
-struct sockaddr_in broadcastAddr; /* Broadcast Address */
-unsigned short broadcastPort;     /* Port */
-char recvString[MAXRECVSTRING+1]; /* Buffer for received string */
-int recvStringLen;                /* Length of received string */
+static int sock;                         /* Socket */
+static struct sockaddr_in broadcastAddr; /* Broadcast Address */
+static unsigned short broadcastPort = BROADCAST_PORT;     /* Port */
+static char recvString[MAXRECVSTRING+1]; /* Buffer for received string */
+static int recvStringLen;                /* Length of received string */
 
 
 char* receiveNetData(int * len) {
