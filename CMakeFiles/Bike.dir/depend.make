@@ -5,6 +5,8 @@ CMakeFiles/Bike.dir/src/AD_HOC.c.o: src/AD_HOC.c
 CMakeFiles/Bike.dir/src/AD_HOC.c.o: src/AD_HOC.h
 CMakeFiles/Bike.dir/src/AD_HOC.c.o: src/Bluetooth_Phone.h
 CMakeFiles/Bike.dir/src/AD_HOC.c.o: src/Bluetooth_Pi0W.h
+CMakeFiles/Bike.dir/src/AD_HOC.c.o: src/BroadcastReceiver.h
+CMakeFiles/Bike.dir/src/AD_HOC.c.o: src/BroadcastSender.h
 CMakeFiles/Bike.dir/src/AD_HOC.c.o: src/VoiceCommands.h
 
 CMakeFiles/Bike.dir/src/Bluetooth_Phone.c.o: src/AD_HOC.h
@@ -18,6 +20,10 @@ CMakeFiles/Bike.dir/src/Bluetooth_Pi0W.c.o: src/Bluetooth_Phone.h
 CMakeFiles/Bike.dir/src/Bluetooth_Pi0W.c.o: src/Bluetooth_Pi0W.c
 CMakeFiles/Bike.dir/src/Bluetooth_Pi0W.c.o: src/Bluetooth_Pi0W.h
 CMakeFiles/Bike.dir/src/Bluetooth_Pi0W.c.o: src/VoiceCommands.h
+
+CMakeFiles/Bike.dir/src/BroadcastReceiver.c.o: src/BroadcastReceiver.c
+
+CMakeFiles/Bike.dir/src/BroadcastSender.c.o: src/BroadcastSender.c
 
 CMakeFiles/Bike.dir/src/Button_ISR.c.o: src/AD_HOC.h
 CMakeFiles/Bike.dir/src/Button_ISR.c.o: src/Bluetooth_Phone.h

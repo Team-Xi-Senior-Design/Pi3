@@ -2,6 +2,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Bike.dir/src/AD_HOC.c.o"
   "CMakeFiles/Bike.dir/src/Bluetooth_Phone.c.o"
   "CMakeFiles/Bike.dir/src/Bluetooth_Pi0W.c.o"
+  "CMakeFiles/Bike.dir/src/BroadcastReceiver.c.o"
+  "CMakeFiles/Bike.dir/src/BroadcastSender.c.o"
   "CMakeFiles/Bike.dir/src/Button_ISR.c.o"
   "CMakeFiles/Bike.dir/src/OBDII.c.o"
   "CMakeFiles/Bike.dir/src/SerialDriver.c.o"

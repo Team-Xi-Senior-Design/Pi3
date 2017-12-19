@@ -7,6 +7,8 @@ set(CMAKE_DEPENDS_CHECK_C
   "/home/pi/Pi3/src/AD_HOC.c" "/home/pi/Pi3/CMakeFiles/Bike.dir/src/AD_HOC.c.o"
   "/home/pi/Pi3/src/Bluetooth_Phone.c" "/home/pi/Pi3/CMakeFiles/Bike.dir/src/Bluetooth_Phone.c.o"
   "/home/pi/Pi3/src/Bluetooth_Pi0W.c" "/home/pi/Pi3/CMakeFiles/Bike.dir/src/Bluetooth_Pi0W.c.o"
+  "/home/pi/Pi3/src/BroadcastReceiver.c" "/home/pi/Pi3/CMakeFiles/Bike.dir/src/BroadcastReceiver.c.o"
+  "/home/pi/Pi3/src/BroadcastSender.c" "/home/pi/Pi3/CMakeFiles/Bike.dir/src/BroadcastSender.c.o"
   "/home/pi/Pi3/src/Button_ISR.c" "/home/pi/Pi3/CMakeFiles/Bike.dir/src/Button_ISR.c.o"
   "/home/pi/Pi3/src/OBDII.c" "/home/pi/Pi3/CMakeFiles/Bike.dir/src/OBDII.c.o"
   "/home/pi/Pi3/src/SerialDriver.c" "/home/pi/Pi3/CMakeFiles/Bike.dir/src/SerialDriver.c.o"

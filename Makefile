@@ -204,6 +204,60 @@ src/Bluetooth_Pi0W.c.s:
 	$(MAKE) -f CMakeFiles/Bike.dir/build.make CMakeFiles/Bike.dir/src/Bluetooth_Pi0W.c.s
 .PHONY : src/Bluetooth_Pi0W.c.s
 
+src/BroadcastReceiver.o: src/BroadcastReceiver.c.o
+
+.PHONY : src/BroadcastReceiver.o
+
+# target to build an object file
+src/BroadcastReceiver.c.o:
+	$(MAKE) -f CMakeFiles/Bike.dir/build.make CMakeFiles/Bike.dir/src/BroadcastReceiver.c.o
+.PHONY : src/BroadcastReceiver.c.o
+
+src/BroadcastReceiver.i: src/BroadcastReceiver.c.i
+
+.PHONY : src/BroadcastReceiver.i
+
+# target to preprocess a source file
+src/BroadcastReceiver.c.i:
+	$(MAKE) -f CMakeFiles/Bike.dir/build.make CMakeFiles/Bike.dir/src/BroadcastReceiver.c.i
+.PHONY : src/BroadcastReceiver.c.i
+
+src/BroadcastReceiver.s: src/BroadcastReceiver.c.s
+
+.PHONY : src/BroadcastReceiver.s
+
+# target to generate assembly for a file
+src/BroadcastReceiver.c.s:
+	$(MAKE) -f CMakeFiles/Bike.dir/build.make CMakeFiles/Bike.dir/src/BroadcastReceiver.c.s
+.PHONY : src/BroadcastReceiver.c.s
+
+src/BroadcastSender.o: src/BroadcastSender.c.o
+
+.PHONY : src/BroadcastSender.o
+
+# target to build an object file
+src/BroadcastSender.c.o:
+	$(MAKE) -f CMakeFiles/Bike.dir/build.make CMakeFiles/Bike.dir/src/BroadcastSender.c.o
+.PHONY : src/BroadcastSender.c.o
+
+src/BroadcastSender.i: src/BroadcastSender.c.i
+
+.PHONY : src/BroadcastSender.i
+
+# target to preprocess a source file
+src/BroadcastSender.c.i:
+	$(MAKE) -f CMakeFiles/Bike.dir/build.make CMakeFiles/Bike.dir/src/BroadcastSender.c.i
+.PHONY : src/BroadcastSender.c.i
+
+src/BroadcastSender.s: src/BroadcastSender.c.s
+
+.PHONY : src/BroadcastSender.s
+
+# target to generate assembly for a file
+src/BroadcastSender.c.s:
+	$(MAKE) -f CMakeFiles/Bike.dir/build.make CMakeFiles/Bike.dir/src/BroadcastSender.c.s
+.PHONY : src/BroadcastSender.c.s
+
 src/Button_ISR.o: src/Button_ISR.c.o
 
 .PHONY : src/Button_ISR.o
@@ -357,6 +411,12 @@ help:
 	@echo "... src/Bluetooth_Pi0W.o"
 	@echo "... src/Bluetooth_Pi0W.i"
 	@echo "... src/Bluetooth_Pi0W.s"
+	@echo "... src/BroadcastReceiver.o"
+	@echo "... src/BroadcastReceiver.i"
+	@echo "... src/BroadcastReceiver.s"
+	@echo "... src/BroadcastSender.o"
+	@echo "... src/BroadcastSender.i"
+	@echo "... src/BroadcastSender.s"
 	@echo "... src/Button_ISR.o"
 	@echo "... src/Button_ISR.i"
 	@echo "... src/Button_ISR.s"

@@ -129,9 +129,57 @@ CMakeFiles/Bike.dir/src/Bluetooth_Pi0W.c.o.provides: CMakeFiles/Bike.dir/src/Blu
 CMakeFiles/Bike.dir/src/Bluetooth_Pi0W.c.o.provides.build: CMakeFiles/Bike.dir/src/Bluetooth_Pi0W.c.o
 
 
+CMakeFiles/Bike.dir/src/BroadcastReceiver.c.o: CMakeFiles/Bike.dir/flags.make
+CMakeFiles/Bike.dir/src/BroadcastReceiver.c.o: src/BroadcastReceiver.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Pi3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/Bike.dir/src/BroadcastReceiver.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Bike.dir/src/BroadcastReceiver.c.o   -c /home/pi/Pi3/src/BroadcastReceiver.c
+
+CMakeFiles/Bike.dir/src/BroadcastReceiver.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Bike.dir/src/BroadcastReceiver.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pi/Pi3/src/BroadcastReceiver.c > CMakeFiles/Bike.dir/src/BroadcastReceiver.c.i
+
+CMakeFiles/Bike.dir/src/BroadcastReceiver.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Bike.dir/src/BroadcastReceiver.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pi/Pi3/src/BroadcastReceiver.c -o CMakeFiles/Bike.dir/src/BroadcastReceiver.c.s
+
+CMakeFiles/Bike.dir/src/BroadcastReceiver.c.o.requires:
+
+.PHONY : CMakeFiles/Bike.dir/src/BroadcastReceiver.c.o.requires
+
+CMakeFiles/Bike.dir/src/BroadcastReceiver.c.o.provides: CMakeFiles/Bike.dir/src/BroadcastReceiver.c.o.requires
+	$(MAKE) -f CMakeFiles/Bike.dir/build.make CMakeFiles/Bike.dir/src/BroadcastReceiver.c.o.provides.build
+.PHONY : CMakeFiles/Bike.dir/src/BroadcastReceiver.c.o.provides
+
+CMakeFiles/Bike.dir/src/BroadcastReceiver.c.o.provides.build: CMakeFiles/Bike.dir/src/BroadcastReceiver.c.o
+
+
+CMakeFiles/Bike.dir/src/BroadcastSender.c.o: CMakeFiles/Bike.dir/flags.make
+CMakeFiles/Bike.dir/src/BroadcastSender.c.o: src/BroadcastSender.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Pi3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/Bike.dir/src/BroadcastSender.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Bike.dir/src/BroadcastSender.c.o   -c /home/pi/Pi3/src/BroadcastSender.c
+
+CMakeFiles/Bike.dir/src/BroadcastSender.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Bike.dir/src/BroadcastSender.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pi/Pi3/src/BroadcastSender.c > CMakeFiles/Bike.dir/src/BroadcastSender.c.i
+
+CMakeFiles/Bike.dir/src/BroadcastSender.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Bike.dir/src/BroadcastSender.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pi/Pi3/src/BroadcastSender.c -o CMakeFiles/Bike.dir/src/BroadcastSender.c.s
+
+CMakeFiles/Bike.dir/src/BroadcastSender.c.o.requires:
+
+.PHONY : CMakeFiles/Bike.dir/src/BroadcastSender.c.o.requires
+
+CMakeFiles/Bike.dir/src/BroadcastSender.c.o.provides: CMakeFiles/Bike.dir/src/BroadcastSender.c.o.requires
+	$(MAKE) -f CMakeFiles/Bike.dir/build.make CMakeFiles/Bike.dir/src/BroadcastSender.c.o.provides.build
+.PHONY : CMakeFiles/Bike.dir/src/BroadcastSender.c.o.provides
+
+CMakeFiles/Bike.dir/src/BroadcastSender.c.o.provides.build: CMakeFiles/Bike.dir/src/BroadcastSender.c.o
+
+
 CMakeFiles/Bike.dir/src/Button_ISR.c.o: CMakeFiles/Bike.dir/flags.make
 CMakeFiles/Bike.dir/src/Button_ISR.c.o: src/Button_ISR.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Pi3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/Bike.dir/src/Button_ISR.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Pi3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/Bike.dir/src/Button_ISR.c.o"
 	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Bike.dir/src/Button_ISR.c.o   -c /home/pi/Pi3/src/Button_ISR.c
 
 CMakeFiles/Bike.dir/src/Button_ISR.c.i: cmake_force
@@ -155,7 +203,7 @@ CMakeFiles/Bike.dir/src/Button_ISR.c.o.provides.build: CMakeFiles/Bike.dir/src/B
 
 CMakeFiles/Bike.dir/src/OBDII.c.o: CMakeFiles/Bike.dir/flags.make
 CMakeFiles/Bike.dir/src/OBDII.c.o: src/OBDII.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Pi3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/Bike.dir/src/OBDII.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Pi3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/Bike.dir/src/OBDII.c.o"
 	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Bike.dir/src/OBDII.c.o   -c /home/pi/Pi3/src/OBDII.c
 
 CMakeFiles/Bike.dir/src/OBDII.c.i: cmake_force
@@ -179,7 +227,7 @@ CMakeFiles/Bike.dir/src/OBDII.c.o.provides.build: CMakeFiles/Bike.dir/src/OBDII.
 
 CMakeFiles/Bike.dir/src/SerialDriver.c.o: CMakeFiles/Bike.dir/flags.make
 CMakeFiles/Bike.dir/src/SerialDriver.c.o: src/SerialDriver.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Pi3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/Bike.dir/src/SerialDriver.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Pi3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/Bike.dir/src/SerialDriver.c.o"
 	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Bike.dir/src/SerialDriver.c.o   -c /home/pi/Pi3/src/SerialDriver.c
 
 CMakeFiles/Bike.dir/src/SerialDriver.c.i: cmake_force
@@ -203,7 +251,7 @@ CMakeFiles/Bike.dir/src/SerialDriver.c.o.provides.build: CMakeFiles/Bike.dir/src
 
 CMakeFiles/Bike.dir/src/VoiceCommands.c.o: CMakeFiles/Bike.dir/flags.make
 CMakeFiles/Bike.dir/src/VoiceCommands.c.o: src/VoiceCommands.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Pi3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/Bike.dir/src/VoiceCommands.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Pi3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/Bike.dir/src/VoiceCommands.c.o"
 	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Bike.dir/src/VoiceCommands.c.o   -c /home/pi/Pi3/src/VoiceCommands.c
 
 CMakeFiles/Bike.dir/src/VoiceCommands.c.i: cmake_force
@@ -227,7 +275,7 @@ CMakeFiles/Bike.dir/src/VoiceCommands.c.o.provides.build: CMakeFiles/Bike.dir/sr
 
 CMakeFiles/Bike.dir/src/main.c.o: CMakeFiles/Bike.dir/flags.make
 CMakeFiles/Bike.dir/src/main.c.o: src/main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Pi3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/Bike.dir/src/main.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Pi3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/Bike.dir/src/main.c.o"
 	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Bike.dir/src/main.c.o   -c /home/pi/Pi3/src/main.c
 
 CMakeFiles/Bike.dir/src/main.c.i: cmake_force
@@ -254,6 +302,8 @@ Bike_OBJECTS = \
 "CMakeFiles/Bike.dir/src/AD_HOC.c.o" \
 "CMakeFiles/Bike.dir/src/Bluetooth_Phone.c.o" \
 "CMakeFiles/Bike.dir/src/Bluetooth_Pi0W.c.o" \
+"CMakeFiles/Bike.dir/src/BroadcastReceiver.c.o" \
+"CMakeFiles/Bike.dir/src/BroadcastSender.c.o" \
 "CMakeFiles/Bike.dir/src/Button_ISR.c.o" \
 "CMakeFiles/Bike.dir/src/OBDII.c.o" \
 "CMakeFiles/Bike.dir/src/SerialDriver.c.o" \
@@ -266,6 +316,8 @@ Bike_EXTERNAL_OBJECTS =
 Bike: CMakeFiles/Bike.dir/src/AD_HOC.c.o
 Bike: CMakeFiles/Bike.dir/src/Bluetooth_Phone.c.o
 Bike: CMakeFiles/Bike.dir/src/Bluetooth_Pi0W.c.o
+Bike: CMakeFiles/Bike.dir/src/BroadcastReceiver.c.o
+Bike: CMakeFiles/Bike.dir/src/BroadcastSender.c.o
 Bike: CMakeFiles/Bike.dir/src/Button_ISR.c.o
 Bike: CMakeFiles/Bike.dir/src/OBDII.c.o
 Bike: CMakeFiles/Bike.dir/src/SerialDriver.c.o
@@ -273,7 +325,7 @@ Bike: CMakeFiles/Bike.dir/src/VoiceCommands.c.o
 Bike: CMakeFiles/Bike.dir/src/main.c.o
 Bike: CMakeFiles/Bike.dir/build.make
 Bike: CMakeFiles/Bike.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pi/Pi3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking C executable Bike"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pi/Pi3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking C executable Bike"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Bike.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -284,6 +336,8 @@ CMakeFiles/Bike.dir/build: Bike
 CMakeFiles/Bike.dir/requires: CMakeFiles/Bike.dir/src/AD_HOC.c.o.requires
 CMakeFiles/Bike.dir/requires: CMakeFiles/Bike.dir/src/Bluetooth_Phone.c.o.requires
 CMakeFiles/Bike.dir/requires: CMakeFiles/Bike.dir/src/Bluetooth_Pi0W.c.o.requires
+CMakeFiles/Bike.dir/requires: CMakeFiles/Bike.dir/src/BroadcastReceiver.c.o.requires
+CMakeFiles/Bike.dir/requires: CMakeFiles/Bike.dir/src/BroadcastSender.c.o.requires
 CMakeFiles/Bike.dir/requires: CMakeFiles/Bike.dir/src/Button_ISR.c.o.requires
 CMakeFiles/Bike.dir/requires: CMakeFiles/Bike.dir/src/OBDII.c.o.requires
 CMakeFiles/Bike.dir/requires: CMakeFiles/Bike.dir/src/SerialDriver.c.o.requires
