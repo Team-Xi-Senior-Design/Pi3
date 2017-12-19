@@ -6,18 +6,15 @@
 #include <unistd.h>     /* for close() */
 #include <netinet/in.h>
 
-#define MAXRECVSTRING 255  /* Longest string to receive */
 #define BROADCAST_PORT 25565
 
 static int sock;                         /* Socket */
 static struct sockaddr_in broadcastAddr; /* Broadcast Address */
 static unsigned short broadcastPort = BROADCAST_PORT;     /* Port */
-static char recvString[MAXRECVSTRING+1]; /* Buffer for received string */
-static int recvStringLen;                /* Length of received string */
 
 
-int receiveNetData(char * len) {
-	return recvfrom(sock,recvString,MAXRECVSTRING, 0, NULL, 0);
+int receiveNetData(char * recvBuff, int receiveBuffSize) {
+	return recvfrom(sock, recvBuff, receiveBuffSize, 0, NULL, 0);
 }
 
 void initReceiver() {

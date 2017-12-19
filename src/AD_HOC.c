@@ -46,6 +46,6 @@ void cleanupAD_HOC() {
  * @param:
  * @return:
  */
-int receive(char*buff){
- 	return receiveNetData(buff);
+int receive(char*buff, int buffSize){
+ 	return receiveNetData(buff,buffSize);
 }

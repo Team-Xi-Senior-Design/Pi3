@@ -16,10 +16,7 @@ int main(int argc, char* argv[]){
 	//broadcast("test",5);
 	char buff[5];
 	int size;
-	size = receive(buff);
-	printf("%d\n", buff[0]);
-	printf("%d\n", buff[1]);
-	printf("%d\n", buff[2]);
-	printf("%d\n", buff[3]);
+	size = receive(buff,5);
+	printf("%5s\n", buff);
 	return (0);
 }
