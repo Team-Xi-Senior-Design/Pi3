@@ -23,9 +23,8 @@
  * @param:
  * @return: NULL
  */
-void broadcast(char* voice){
-
-
+void broadcast(char* voice, int size){
+	sendNetData(voice,size);
 }
 
 /*
@@ -34,10 +33,12 @@ void broadcast(char* voice){
  * @retrun: NULL
  */
 void initAD_HOC(){
-	
+	initReceiver();
+	initSender();
 }
 
-void test() {
+void cleanupAD_HOC() {
+	cleanupReceiver();
 }
 
 /*
@@ -45,17 +46,6 @@ void test() {
  * @param:
  * @return:
  */
-char* recieve(){
-  return 0;
+char* receive(int*size){
+ 	return receiveNetData(size);
 }
-
-
-
-
-
-
-
-
-
-
-/*communications stuff*/

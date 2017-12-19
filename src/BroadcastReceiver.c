@@ -16,7 +16,7 @@ char recvString[MAXRECVSTRING+1]; /* Buffer for received string */
 int recvStringLen;                /* Length of received string */
 
 
-char* recieveNetData(int * len) {
+char* receiveNetData(int * len) {
 	*len = recvfrom(sock,recvString,MAXRECVSTRING, 0, NULL, 0);
 }
 

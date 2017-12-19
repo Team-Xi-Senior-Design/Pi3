@@ -12,7 +12,10 @@ int main(int argc, char* argv[]){
 //	printf("RPM: %d\n", getRPM());
 //	printf("Ground Speed [km/h]: %d\n", getSpeed());
 //	freeOBDII();
-	return (0);
 	initAD_HOC();
-	test();
+	//broadcast("test",5);
+	char buff[5];
+	int size;
+	//buff = receive(&size);
+	return (0);
 }
