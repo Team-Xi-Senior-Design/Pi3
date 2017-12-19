@@ -45,6 +45,7 @@ void initAD_HOC(){
     char *localIP = "localhost";
     int BroadcastPort = 25565;
     char *broadcastIP = "169.254.255.255";
+
     uint16_t broadcastPort;      /* Server port */
     char *audioString;           /* Audio string to broadcast */
     int broadcastOpt;            /* Socket opt to set permission to broadcast */
@@ -73,13 +74,13 @@ void initAD_HOC(){
         if (sendto(sockfd, localIP, localIPLen, 0, (struct sockaddr*)&broadcastAddr, sizeof(broadcastAddr))!=localIPLen) {
             perror("sendto() sent a different number of bytes than expected");
         }
+	memset(recv_buffer,0,12);
+	recvfrom(sockfd, recv_buffer, 10, NULL, (struct sockaddr*)&broadcastAddr, sizeof(broadcastAddr));
+	printf(recv_buffer);
     }
 }
 
 void test() {
-	write(sockfd,"asdf",5);
-	while(!read(sockfd,recv_buffer,5));
-	printf(recv_buffer);
 }
 
 /*
