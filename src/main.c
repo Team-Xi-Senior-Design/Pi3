@@ -17,6 +17,6 @@ int main(int argc, char* argv[]){
 	char buff[5];
 	int size;
 	size = receive(buff,5);
-	printf("%5s\n", buff);
+	printf("%4s\n", buff);
 	return (0);
 }
