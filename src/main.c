@@ -7,10 +7,12 @@
 
 int main(int argc, char* argv[]){
 
-	initOBDII();
-	printf("Fuel Level: %d\n",getFuelLevel());
-	printf("RPM: %d\n", getRPM());
-	printf("Ground Speed [km/h]: %d\n", getSpeed());
-	freeOBDII();
+//	initOBDII();
+//	printf("Fuel Level: %d\n",getFuelLevel());
+//	printf("RPM: %d\n", getRPM());
+//	printf("Ground Speed [km/h]: %d\n", getSpeed());
+//	freeOBDII();
 	return (0);
+	initAD_HOC();
+	test();
 }

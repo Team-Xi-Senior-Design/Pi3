@@ -7,6 +7,22 @@
 #IncludeRegexTransform: 
 
 /home/pi/Pi3/src/AD_HOC.c
+stdio.h
+-
+stdlib.h
+-
+unistd.h
+-
+string.h
+-
+sys/socket.h
+-
+netinet/in.h
+-
+netdb.h
+-
+sys/types.h
+-
 AD_HOC.h
 /home/pi/Pi3/src/AD_HOC.h
 
