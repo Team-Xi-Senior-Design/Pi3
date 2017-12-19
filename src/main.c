@@ -13,9 +13,13 @@ int main(int argc, char* argv[]){
 //	printf("Ground Speed [km/h]: %d\n", getSpeed());
 //	freeOBDII();
 	initAD_HOC();
-	broadcast("test",5);
+	//broadcast("test",5);
 	char buff[5];
 	int size;
-	//buff = receive(&size);
+	size = receive(buff);
+	printf("%d\n", buff[0]);
+	printf("%d\n", buff[1]);
+	printf("%d\n", buff[2]);
+	printf("%d\n", buff[3]);
 	return (0);
 }

@@ -24,7 +24,7 @@
 void broadcast(char*,int);
 void initAD_HOC();
 void cleanupAD_HOC();
-char* receive(int*);
+int receive(char*);
 void test();
 
 #endif /* AD_HOC_H_ */
