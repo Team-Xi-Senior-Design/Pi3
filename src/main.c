@@ -25,5 +25,11 @@ int main(int argc, char* argv[]){
 		sendData(buff);
 	}
 	freeOBDII();
+  initAD_HOC();
+  broadcast("test",5);
+  char buff[5];
+	int size;
+	//size = receive(buff,5);
+	//printf("%4s\n", buff);
 	return (0);
 }

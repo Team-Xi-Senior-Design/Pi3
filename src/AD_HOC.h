@@ -21,8 +21,10 @@
  * Function Prototypes       *
  *****************************/
 
-void broadcast(char*);
+void broadcast(char*,int);
 void initAD_HOC();
-char* recieve(void);
+void cleanupAD_HOC();
+int receive(char*,int);
+void test();
 
 #endif /* AD_HOC_H_ */

@@ -3,15 +3,28 @@
  * Description: This file contains the functions that will control all AD-HOC network communications
  */
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+
+#include <netdb.h>
+#include <sys/types.h>
+
 #include "AD_HOC.h"
+
+#include "BroadcastSender.h"
+#include "BroadcastReceiver.h"
 
 /*
  * Description:
  * @param:
  * @return: NULL
  */
-void broadcast(char* voice){
-
+void broadcast(char* voice, int size){
+	sendNetData(voice,size);
 }
 
 /*
@@ -20,7 +33,12 @@ void broadcast(char* voice){
  * @retrun: NULL
  */
 void initAD_HOC(){
+	initReceiver();
+	initSender();
+}
 
+void cleanupAD_HOC() {
+	cleanupReceiver();
 }
 
 /*
@@ -28,6 +46,6 @@ void initAD_HOC(){
  * @param:
  * @return:
  */
-char* recieve(){
-  return 0;
+int receive(char*buff, int buffSize){
+ 	return receiveNetData(buff,buffSize);
 }
