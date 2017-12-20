@@ -141,6 +141,7 @@ void initOBDII(){
 		printf("Failed to open the ELM327 device\n");
 		return;
 	}
+
 	set_interface_attribs(SerialPortID, B38400, 0); // baud of 38400, no parity
 	set_blocking(SerialPortID, 0); // no blocking
 

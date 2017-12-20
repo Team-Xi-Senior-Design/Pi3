@@ -4,14 +4,14 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/pi/Pi3/src/AD_HOC.c" "/home/pi/Pi3/CMakeFiles/bike.dir/src/AD_HOC.c.o"
-  "/home/pi/Pi3/src/Bluetooth_Phone.c" "/home/pi/Pi3/CMakeFiles/bike.dir/src/Bluetooth_Phone.c.o"
-  "/home/pi/Pi3/src/Bluetooth_Pi0W.c" "/home/pi/Pi3/CMakeFiles/bike.dir/src/Bluetooth_Pi0W.c.o"
-  "/home/pi/Pi3/src/Button_ISR.c" "/home/pi/Pi3/CMakeFiles/bike.dir/src/Button_ISR.c.o"
-  "/home/pi/Pi3/src/OBDII.c" "/home/pi/Pi3/CMakeFiles/bike.dir/src/OBDII.c.o"
-  "/home/pi/Pi3/src/SerialDriver.c" "/home/pi/Pi3/CMakeFiles/bike.dir/src/SerialDriver.c.o"
-  "/home/pi/Pi3/src/VoiceCommands.c" "/home/pi/Pi3/CMakeFiles/bike.dir/src/VoiceCommands.c.o"
-  "/home/pi/Pi3/src/main.c" "/home/pi/Pi3/CMakeFiles/bike.dir/src/main.c.o"
+  "/home/teamxi/pi3stuff/src/AD_HOC.c" "/home/teamxi/pi3stuff/CMakeFiles/Bike.dir/src/AD_HOC.c.o"
+  "/home/teamxi/pi3stuff/src/Bluetooth_Phone.c" "/home/teamxi/pi3stuff/CMakeFiles/Bike.dir/src/Bluetooth_Phone.c.o"
+  "/home/teamxi/pi3stuff/src/Bluetooth_Pi0W.c" "/home/teamxi/pi3stuff/CMakeFiles/Bike.dir/src/Bluetooth_Pi0W.c.o"
+  "/home/teamxi/pi3stuff/src/Button_ISR.c" "/home/teamxi/pi3stuff/CMakeFiles/Bike.dir/src/Button_ISR.c.o"
+  "/home/teamxi/pi3stuff/src/OBDII.c" "/home/teamxi/pi3stuff/CMakeFiles/Bike.dir/src/OBDII.c.o"
+  "/home/teamxi/pi3stuff/src/SerialDriver.c" "/home/teamxi/pi3stuff/CMakeFiles/Bike.dir/src/SerialDriver.c.o"
+  "/home/teamxi/pi3stuff/src/VoiceCommands.c" "/home/teamxi/pi3stuff/CMakeFiles/Bike.dir/src/VoiceCommands.c.o"
+  "/home/teamxi/pi3stuff/src/main.c" "/home/teamxi/pi3stuff/CMakeFiles/Bike.dir/src/main.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

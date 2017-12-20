@@ -20,6 +20,7 @@ char* getAudio(void);
 void sendAudio(char*);
 void sendData(char*);
 void initBluetooth_Pi0W(void);
+void closeVoiceCommands(void);
 
 
 #endif /* BLUETOOTH_PI0W_H */

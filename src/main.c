@@ -6,11 +6,24 @@
 #include "main.h"
 
 int main(int argc, char* argv[]){
-
 	initOBDII();
-	printf("Fuel Level: %d\n",getFuelLevel());
-	printf("RPM: %d\n", getRPM());
-	printf("Ground Speed [km/h]: %d\n", getSpeed());
+
+	initBluetooth_Pi0W();
+	//printf(getAudio());
+
+	char buff[2048];
+
+	while(1) {
+		sprintf(buff,"Fuel Level: %d\n\r",getFuelLevel());
+		printf(buff);
+		sendData(buff);
+		sprintf(buff,"RPM: %d\n\r", getRPM());
+		printf(buff);
+		sendData(buff);
+		sprintf(buff,"Ground Speed [km/h]: %d\n\r", getSpeed());
+		printf(buff);
+		sendData(buff);
+	}
 	freeOBDII();
 	return (0);
 }
