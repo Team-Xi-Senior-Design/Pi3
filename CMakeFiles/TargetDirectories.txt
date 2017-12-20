@@ -1,3 +1,0 @@
-/home/teamxi/pi3stuff/CMakeFiles/rebuild_cache.dir
-/home/teamxi/pi3stuff/CMakeFiles/edit_cache.dir
-/home/teamxi/pi3stuff/CMakeFiles/Bike.dir
