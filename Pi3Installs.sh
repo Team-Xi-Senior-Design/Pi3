@@ -11,7 +11,7 @@ sudo wget -v -O pocketsphinx.tar.gz https://sourceforge.net/projects/cmusphinx/f
 tar -xzvf sphinxbase.tar.gz
 tar -xzvf pocketsphinx.tar.gz
 
-sudo apt-get install bison libasound2-dev swig python-dev -y
+sudo apt-get install bison libasound2-dev swig python-dev libbluetooth-dev -y
 
 cd sphinxbase-5prealpha
 ./configure --enable-fixed
