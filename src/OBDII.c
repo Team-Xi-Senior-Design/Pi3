@@ -138,7 +138,7 @@ void initOBDII(){
 	SerialPortID = open(PORTNAME, O_RDWR | O_NOCTTY | O_SYNC);
 	if (SerialPortID < 0)
 	{
-		printf("Something very bad happened, you should probably cry\n");
+		printf("Failed to open the ELM327 device\n");
 		return;
 	}
 	set_interface_attribs(SerialPortID, B38400, 0); // baud of 38400, no parity
