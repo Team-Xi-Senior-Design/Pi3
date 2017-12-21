@@ -3,21 +3,26 @@
  * Description: This is the main c file for the bike side controller
  */
 
-#include "main.h"
-#include "string.h"
 #include <stdlib.h>
+#include <string.h>
+
+#include "main.h"
+#include "AD_HOC.h"
 
 int main(int argc, char* argv[]){
 	initOBDII();
 
 	initBluetooth_Pi0W();
+	initAD_HOC();
 
 	packet_t *boi = malloc(sizeof(packet_t));
 	while(1) {
 
 		boi->datatype = OBDII_DATA;
 		//boi->name = "From Bike w/ <3";
-		memcpy(boi->name, "From Bike w/ <3", 15);
+		char buff[2048];
+		scanf("%s",buff);
+		memcpy(boi->name, buff, strlen(buff));
 		//printf("%s",boi->name);
 
 		obd2data_t *boiz = malloc(sizeof(obd2data_t));
@@ -30,6 +35,9 @@ int main(int argc, char* argv[]){
 
 		sendBluetoothData(boi);
 		free(boiz);
+
+		receive(boi);
+		printf("data from other bike: datatype: %d, name: %s, size: %d, data: %s\r\n",boi->datatype,boi->name,boi->size,boi->data);
 	}
 	freeOBDII();
 	free(boi);

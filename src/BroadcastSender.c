@@ -28,7 +28,8 @@ void sendNetData(packet_t* data) {
 	broadcastAddr.sin_family = AF_INET;                 /* Internet address family */
 	broadcastAddr.sin_addr.s_addr = inet_addr(broadcastIP);/* Broadcast IP address */
 	broadcastAddr.sin_port = htons(broadcastPort);         /* Broadcast port */
-	if (sendto(sock, data, sizeof(packet_t), 0, (struct sockaddr *) &broadcastAddr, sizeof(broadcastAddr)) != sizeof(data)) {
-		printf("wrong number of bytes sent");
+	int bytesSent = 0;
+	while (bytesSent < sizeof(packet_t)) {
+		bytesSent += sendto(sock, &((char*)data)[bytesSent], sizeof(packet_t)-bytesSent, 0, (struct sockaddr *) &broadcastAddr, sizeof(broadcastAddr));
 	}
 }
