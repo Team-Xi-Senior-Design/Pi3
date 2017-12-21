@@ -15,7 +15,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#define BUFFER_SIZE 255
+#define SERIAL_BUFFER_SIZE 255
 
 const char PORTNAME[] = "/dev/ttyUSB0";
 
@@ -43,7 +43,7 @@ int getFuelLevel(){
 		// wait a second for the hardware to get some data
 		usleep(20000);
 		// increase the bytes read, and read the serial data into the buffer
-		bytesRead += read(SerialPortID, &Buffer[bytesRead], BUFFER_SIZE);
+		bytesRead += read(SerialPortID, &Buffer[bytesRead], SERIAL_BUFFER_SIZE);
 		// if we read something
 		if (bytesRead > 0) {
 			// check to see if the end of the transmission was recieved, and if it was, exit
@@ -60,7 +60,7 @@ int getFuelLevel(){
 	// wait a bit
 	usleep(2000);
 	// clear the serial data
-	while(read(SerialPortID, &Buffer[bytesRead], BUFFER_SIZE)!=0);
+	while(read(SerialPortID, &Buffer[bytesRead], SERIAL_BUFFER_SIZE)!=0);
 	// clear the buffer
 	memset(Buffer,0,bytesRead);
 
@@ -80,7 +80,7 @@ int getRPM(){
 
 	while (!responseRecieved) {
 		usleep(20000);
-		bytesRead += read(SerialPortID, &Buffer[bytesRead], BUFFER_SIZE);
+		bytesRead += read(SerialPortID, &Buffer[bytesRead], SERIAL_BUFFER_SIZE);
 		if (bytesRead > 0) {
 			responseRecieved = Buffer[bytesRead-1]!='\r';
 		}
@@ -92,7 +92,7 @@ int getRPM(){
 	memset(Buffer,0,bytesRead);
 
 	usleep(2000);
-	while(read(SerialPortID, &Buffer[bytesRead], BUFFER_SIZE)!=0);
+	while(read(SerialPortID, &Buffer[bytesRead], SERIAL_BUFFER_SIZE)!=0);
 	memset(Buffer,0,bytesRead);
 
 	return returnValue;
@@ -111,7 +111,7 @@ int getSpeed(){
 
 	while (!responseRecieved) {
 		usleep(20000);
-		bytesRead += read(SerialPortID, &Buffer[bytesRead], BUFFER_SIZE);
+		bytesRead += read(SerialPortID, &Buffer[bytesRead], SERIAL_BUFFER_SIZE);
 		if (bytesRead > 0) {
 			responseRecieved = Buffer[bytesRead-1]!='\r';
 		}
@@ -122,7 +122,7 @@ int getSpeed(){
 	memset(Buffer,0,bytesRead);
 
 	usleep(2000);
-	while(read(SerialPortID, &Buffer[bytesRead], BUFFER_SIZE)!=0);
+	while(read(SerialPortID, &Buffer[bytesRead], SERIAL_BUFFER_SIZE)!=0);
 	memset(Buffer,0,bytesRead);
 
 	return returnValue;
@@ -145,14 +145,14 @@ void initOBDII(){
 	set_interface_attribs(SerialPortID, B38400, 0); // baud of 38400, no parity
 	set_blocking(SerialPortID, 0); // no blocking
 
-	Buffer = (char*)malloc(BUFFER_SIZE);
+	Buffer = (char*)malloc(SERIAL_BUFFER_SIZE);
 
 	write(SerialPortID,OBD2_INIT,strlen(OBD2_INIT)+1);
 
 	usleep((50)*200);
 
-	while(read(SerialPortID,Buffer,BUFFER_SIZE)==0);
-	while(read(SerialPortID,Buffer,BUFFER_SIZE)!=0);
+	while(read(SerialPortID,Buffer,SERIAL_BUFFER_SIZE)==0);
+	while(read(SerialPortID,Buffer,SERIAL_BUFFER_SIZE)!=0);
 }
 
 void freeOBDII() {

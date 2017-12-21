@@ -1,7 +1,9 @@
 #ifndef BROADCAST_RECEIVER_H_
 #define BROADCAST_RECEIVER_H_
 
-int receiveNetData(char*buff, int len);
+#include "NetworkPacket.h"
+
+void receiveNetData(packet_t *);
 void cleanupReceiver();
 void initReceiver();
 

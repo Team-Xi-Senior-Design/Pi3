@@ -23,8 +23,8 @@
  * @param:
  * @return: NULL
  */
-void broadcast(char* voice, int size){
-	sendNetData(voice,size);
+void broadcast(packet_t* packet){
+	sendNetData(packet);
 }
 
 /*
@@ -46,6 +46,6 @@ void cleanupAD_HOC() {
  * @param:
  * @return:
  */
-int receive(char*buff, int buffSize){
- 	return receiveNetData(buff,buffSize);
+void receive(packet_t* packet){
+ 	receiveNetData(packet);
 }

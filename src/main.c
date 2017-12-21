@@ -4,6 +4,7 @@
  */
 
 #include "main.h"
+#include "string.h"
 
 int main(int argc, char* argv[]){
 	initOBDII();
@@ -11,23 +12,28 @@ int main(int argc, char* argv[]){
 	initBluetooth_Pi0W();
 	//printf(getAudio());
 
-	char buff[2048];
+	//char buff[2048];
 
 	while(1) {
-		sprintf(buff,"Fuel Level: %d\n\r",getFuelLevel());
-		printf(buff);
-		sendData(buff);
-		sprintf(buff,"RPM: %d\n\r", getRPM());
-		printf(buff);
-		sendData(buff);
-		sprintf(buff,"Ground Speed [km/h]: %d\n\r", getSpeed());
-		printf(buff);
-		sendData(buff);
+		packet_t *boi;
+		boi->datatype = OBDII_DATA;
+		//boi->name = "From Bike w/ <3";
+		memcpy(boi->name, "From Bike w/ <3", 15);
+
+		obd2data_t *boiz;
+		boiz->fuelLevel = getFuelLevel();
+		boiz->speed = getSpeed();
+		boiz->rpm = getRPM();
+
+		memcpy(boi->data, boiz, sizeof(obd2data_t));
+		boi->size = sizeof(obd2data_t);
+
+		sendBluetoothData(boi);
 	}
 	freeOBDII();
-	initAD_HOC();
-	broadcast("test",5);
-	int size;
+	//initAD_HOC();
+	//broadcast("test",5);
+	//int size;
 	//size = receive(buff,5);
 	//printf("%4s\n", buff);
 	return (0);
