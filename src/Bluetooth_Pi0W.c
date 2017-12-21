@@ -31,9 +31,9 @@ static int client;
  */
 void getBluetoothData(packet_t* data){
 	int bytesRead = 0;
-	memset(data, 0, sizeof(data));
+	memset(data, 0, sizeof(packet_t));
 	while (bytesRead < sizeof(packet_t)) {
-		bytesRead += read(client, &data[bytesRead], sizeof(packet_t)-bytesRead);
+		bytesRead += read(client, &((char*)data)[bytesRead], sizeof(packet_t)-bytesRead);
 	}
 }
 
@@ -43,7 +43,11 @@ void getBluetoothData(packet_t* data){
  * @return:NULL
  */
 void sendBluetoothData(packet_t* data){
-	write(client,data,sizeof(packet_t));
+	int dataWritten = 0;
+	while (dataWritten < sizeof(packet_t)) {
+		dataWritten += write(client,&((char*)data)[dataWritten],sizeof(packet_t)-dataWritten);
+		printf("%d\n",dataWritten);
+	}
 }
 
 /*

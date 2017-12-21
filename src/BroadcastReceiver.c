@@ -17,9 +17,9 @@ static unsigned short broadcastPort = BROADCAST_PORT;     /* Port */
 
 void receiveNetData(packet_t * data) {
 	int bytesRead = 0;
-	while (bytesRead < sizeof(data)) {
+	while (bytesRead < sizeof(packet_t)) {
 
-		bytesRead += recvfrom(sock, &data[bytesRead], sizeof(data)-bytesRead, 0, NULL, 0);
+		bytesRead += recvfrom(sock, &data[bytesRead], sizeof(packet_t)-bytesRead, 0, NULL, 0);
 	}
 }
 
