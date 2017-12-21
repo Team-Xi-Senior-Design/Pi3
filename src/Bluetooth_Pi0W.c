@@ -23,27 +23,18 @@ static char* BluetoothAddr = "B8:27:EB:6E:73:23";
 #define CHANNEL_NUMBER 1
 static int sock;
 static int client;
-static char* receivedAudio;
-#define AUDIO_BUFFER_SIZE 255
 
 /*
  * Description:
- * @param:
+ * @param: data
  * @return:
  */
-char* getAudio(){
-  memset(receivedAudio,AUDIO_BUFFER_SIZE,0);
-  read(client, receivedAudio,AUDIO_BUFFER_SIZE);
-  return receivedAudio;
-}
-
-/*
- * Description: Sends audio across the Bluetooth connection to the Pi0W
- * @param: audio
- * @return: NULL
- */
-void sendAudio(char* audio){
-  send(client,audio,strlen(audio),0);
+void getBluetoothData(packet_t* data){
+	int bytesRead = 0;
+	memset(data, 0, sizeof(data));
+	while (bytesRead < sizeof(packet_t)) {
+		bytesRead += read(client, &data[bytesRead], sizeof(packet_t)-bytesRead);
+	}
 }
 
 /*
@@ -51,8 +42,8 @@ void sendAudio(char* audio){
  * @param: data
  * @return:NULL
  */
-void sendData(char* data){
-  write(client,data,strlen(data));
+void sendBluetoothData(packet_t* data){
+	write(client,data,sizeof(packet_t));
 }
 
 /*
@@ -65,7 +56,6 @@ void initBluetooth_Pi0W(){
 	struct sockaddr_rc laddr={0}, raddr={0};
 	struct hci_dev_info di;
 	int opt = sizeof(raddr);
-	receivedAudio = malloc(AUDIO_BUFFER_SIZE);
 
 	if(hci_devinfo(0, &di) < 0) {
 		perror("HCI device info failed");
@@ -113,5 +103,4 @@ void initBluetooth_Pi0W(){
  */
 void closeBluetooth_Pi0W(){
 	close(sock);
-	free(receivedAudio);
 }
