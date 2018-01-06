@@ -6,6 +6,8 @@
 #include <unistd.h>     /* for close() */
 #include <netinet/in.h>
 
+#include "BroadcastReceiver.h"
+
 #define BROADCAST_PORT 25565
 
 static int sock;                         /* Socket */
@@ -13,8 +15,12 @@ static struct sockaddr_in broadcastAddr; /* Broadcast Address */
 static unsigned short broadcastPort = BROADCAST_PORT;     /* Port */
 
 
-int receiveNetData(char * recvBuff, int receiveBuffSize) {
-	return recvfrom(sock, recvBuff, receiveBuffSize, 0, NULL, 0);
+void receiveNetData(packet_t * data) {
+	int bytesRead = 0;
+	while (bytesRead < sizeof(packet_t)) {
+
+		bytesRead += recvfrom(sock, &data[bytesRead], sizeof(packet_t)-bytesRead, 0, NULL, 0);
+	}
 }
 
 void initReceiver() {

@@ -16,15 +16,16 @@
  * External Includes         *
  *****************************/
 #include "Bluetooth_Pi0W.h"
+#include "NetworkPacket.h"
 
 /*****************************
  * Function Prototypes       *
  *****************************/
 
-void broadcast(char*,int);
+void broadcast(packet_t *);
 void initAD_HOC();
 void cleanupAD_HOC();
-int receive(char*,int);
+void receive(packet_t *);
 void test();
 
 #endif /* AD_HOC_H_ */

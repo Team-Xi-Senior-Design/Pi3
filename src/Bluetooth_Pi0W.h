@@ -11,16 +11,15 @@
  * External Includes                       *
  *******************************************/
 #include "VoiceCommands.h"
-
+#include "NetworkPacket.h"
 
 /*******************************************
  * Function Prototypes                     *
  *******************************************/
-char* getAudio(void);
-void sendAudio(char*);
-void sendData(char*);
+void getBluetoothData(packet_t*);
+void sendBluetoothData(packet_t*);
 void initBluetooth_Pi0W(void);
-void closeVoiceCommands(void);
+void closeBluetooth_Pi0W(void);
 
 
 #endif /* BLUETOOTH_PI0W_H */
