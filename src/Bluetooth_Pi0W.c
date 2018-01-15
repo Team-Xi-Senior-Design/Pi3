@@ -46,7 +46,6 @@ void sendBluetoothData(packet_t* data){
 	int dataWritten = 0;
 	while (dataWritten < sizeof(packet_t)) {
 		dataWritten += write(client,&((char*)data)[dataWritten],sizeof(packet_t)-dataWritten);
-		printf("%d\n",dataWritten);
 	}
 }
 

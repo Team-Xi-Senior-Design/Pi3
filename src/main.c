@@ -10,6 +10,7 @@
 #include "AD_HOC.h"
 
 int main(int argc, char* argv[]){
+	/**
 	initOBDII();
 
 	initBluetooth_Pi0W();
@@ -21,8 +22,9 @@ int main(int argc, char* argv[]){
 		boi->datatype = OBDII_DATA;
 		//boi->name = "From Bike w/ <3";
 		char buff[2048];
-		scanf("%s",buff);
+		fgets(buff,32,stdin);
 		memcpy(boi->name, buff, strlen(buff));
+		boi->name[strlen(buff)-1] = 0;
 		//printf("%s",boi->name);
 
 		obd2data_t *boiz = malloc(sizeof(obd2data_t));
@@ -46,5 +48,8 @@ int main(int argc, char* argv[]){
 	//int size;
 	//size = receive(buff,5);
 	//printf("%4s\n", buff);
+	return (0);
+	*/
+
 	return (0);
 }
