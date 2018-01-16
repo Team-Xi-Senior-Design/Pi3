@@ -21,6 +21,7 @@ int main(int argc, char* argv[]){
 	pthread_create(&bluepi, NULL, handleBluetoothRecv, NULL);
 
 	pthread_exit(NULL);
+	closeBluetooth_Pi0W();
 	/**
 	initOBDII();
 
