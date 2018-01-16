@@ -5,6 +5,11 @@
  */
 
 #include "VoiceCommands.h"
+#include "NetworkPacket.h"
+
+void processVoiceCommands(packet_t* data)
+{
+}
 
 /*
  * Description:

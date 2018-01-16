@@ -19,10 +19,12 @@
 #include "Bluetooth_Pi0W.h"
 #include "Bluetooth_Phone.h"
 #include "AD_HOC.h"
+#include "NetworkPacket.h"
 
 /******************************************
  * Function Prototypes                    *
  ******************************************/
+void processVoiceCommands(packet_t*);
 void gps(char*);
 void join(char*);
 void kick(char*);

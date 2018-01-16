@@ -17,7 +17,7 @@
 
 #include "BroadcastSender.h"
 #include "BroadcastReceiver.h"
-
+#include "Bluetooth_Pi0W.h"
 /*
  * Description:
  * @param:
@@ -48,4 +48,19 @@ void cleanupAD_HOC() {
  */
 void receive(packet_t* packet){
  	receiveNetData(packet);
+}
+
+void* adhocThread(void* params)
+{
+	packet_t data;
+	while (1)
+	{
+		receive(&data);
+		switch(data.datatype)
+		{
+			case VOICE_DATA:
+				sendBluetoothData(&data);
+				break;
+		}
+	}
 }

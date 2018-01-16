@@ -12,12 +12,14 @@
  *******************************************/
 #include "AD_HOC.h"
 #include "VoiceCommands.h"
+#include <stdbool.h>
 
 /*******************************************
  * Funtion Prototypes                      *
  *******************************************/
+void setupIO();
 void lobbySel(int);
-void voiceCMD(char*);
+bool voiceCMD();
 void volModButton(int);
 
 #endif /* BUTTON_ISR_H */

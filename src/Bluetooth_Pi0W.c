@@ -5,6 +5,10 @@
  */
 
 #include "Bluetooth_Pi0W.h"
+#include "NetworkPacket.h"
+#include "VoiceCommands.h"
+#include "Button_ISR.h"
+
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <sys/types.h>
@@ -14,15 +18,44 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+
 #include <bluetooth/bluetooth.h>
 #include <bluetooth/rfcomm.h>
 #include <bluetooth/hci.h>
 #include <bluetooth/hci_lib.h>
 
-static char* BluetoothAddr = "B8:27:EB:6E:73:23";
+static char* BluetoothAddr = "B8:27:EB:66:3C:01";
 #define CHANNEL_NUMBER 1
 static int sock;
 static int client;
+
+
+void* handleBluetoothRecv(void* params)
+{
+	packet_t receivedData;
+
+	while (1)
+	{
+		getBluetoothData(&receivedData);
+		switch(receivedData.datatype)
+		{
+			case OBDII_DATA:
+				break;
+			case VOICE_DATA:
+				if (voiceCMD())
+				{
+					processVoiceCommands(&receivedData);
+					write(1,receivedData.data,receivedData.size);
+				}
+				else
+				{
+					broadcast(&receivedData);
+					write(1,receivedData.data,receivedData.size);
+				}				break;
+		}
+	}
+
+}
 
 /*
  * Description:

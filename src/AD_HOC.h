@@ -27,5 +27,6 @@ void initAD_HOC();
 void cleanupAD_HOC();
 void receive(packet_t *);
 void test();
+void* adhocThread(void*);
 
 #endif /* AD_HOC_H_ */

@@ -20,6 +20,6 @@ void getBluetoothData(packet_t*);
 void sendBluetoothData(packet_t*);
 void initBluetooth_Pi0W(void);
 void closeBluetooth_Pi0W(void);
-
+void* handleBluetoothRecv(void*);
 
 #endif /* BLUETOOTH_PI0W_H */

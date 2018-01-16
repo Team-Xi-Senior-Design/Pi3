@@ -18,7 +18,7 @@ include_directories(
 
 file (GLOB SOURCES "src/*.c" "src/*.h")
 
-SET ( GCC_COVERAGE_LINK_FLAGS "-lbluetooth")
+SET ( GCC_COVERAGE_LINK_FLAGS "-lbluetooth -lpthread")
 
 SET ( CMAKE_EXE_LINKER_FLAGS "${GCC_COVERAGE_LINK_FLAGS}" )
 
