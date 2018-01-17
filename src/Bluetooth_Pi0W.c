@@ -51,7 +51,8 @@ void* handleBluetoothRecv(void* params)
 				{
 					broadcast(&receivedData);
 					write(1,receivedData.data,receivedData.size);
-				}				break;
+				}
+				break;
 		}
 	}
 
