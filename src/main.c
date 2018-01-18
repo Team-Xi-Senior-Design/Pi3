@@ -12,12 +12,12 @@
 #include <pthread.h>
 
 int main(int argc, char* argv[]){
-	initAD_HOC();
+	//initAD_HOC();
 	initBluetooth_Pi0W();
 	//initOBDII();
 	pthread_t adhoc,bluepi;
 
-	pthread_create(&adhoc, NULL, adhocThread, NULL);
+	//pthread_create(&adhoc, NULL, adhocThread, NULL);
 	pthread_create(&bluepi, NULL, handleBluetoothRecv, NULL);
 
 	pthread_exit(NULL);
