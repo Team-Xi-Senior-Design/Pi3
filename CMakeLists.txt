@@ -1,6 +1,6 @@
 cmake_minimum_required (VERSION 3.0)
 
-SET (CMAKE_MODULE_PATH "/home/teamxi/pi3stuff/")
+SET (CMAKE_MODULE_PATH "./")
 
 include(FindPocketSphinx.cmake)
 include(FindSphinxBase.cmake)
