@@ -60,6 +60,7 @@ void* adhocThread(void* params)
 		{
 			case VOICE_DATA:
 				sendBluetoothData(&data);
+				write(1,data.data,data.size);
 				break;
 		}
 	}

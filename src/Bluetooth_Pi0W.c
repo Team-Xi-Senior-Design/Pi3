@@ -45,12 +45,12 @@ void* handleBluetoothRecv(void* params)
 				if (voiceCMD())
 				{
 					processVoiceCommands(&receivedData);
-					write(1,receivedData.data,receivedData.size);
+					//write(1,receivedData.data,receivedData.size);
 				}
 				else
 				{
 					broadcast(&receivedData);
-					write(1,receivedData.data,receivedData.size);
+					//write(1,receivedData.data,receivedData.size);
 				}
 				break;
 		}
