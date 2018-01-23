@@ -1,3 +1,4 @@
+#include <errno.h>
 #include <stdio.h>      /* for printf() and fprintf() */
 #include <sys/socket.h> /* for socket(), connect(), sendto(), and recvfrom() */
 #include <arpa/inet.h>  /* for sockaddr_in and inet_addr() */
@@ -9,6 +10,7 @@
 #include "BroadcastReceiver.h"
 
 #define BROADCAST_PORT 25565
+#define MAX_PACKET_SIZE 1500
 
 static int sock;                         /* Socket */
 static struct sockaddr_in broadcastAddr; /* Broadcast Address */
@@ -18,8 +20,14 @@ static unsigned short broadcastPort = BROADCAST_PORT;     /* Port */
 void receiveNetData(packet_t * data) {
 	int bytesRead = 0;
 	while (bytesRead < sizeof(packet_t)) {
-
-		bytesRead += recvfrom(sock, &data[bytesRead], sizeof(packet_t)-bytesRead, 0, NULL, 0);
+		int bytes = recvfrom(sock, &data[bytesRead], (sizeof(packet_t)-bytesRead)>MAX_PACKET_SIZE?MAX_PACKET_SIZE:(sizeof(packet_t)-bytesRead), 0, NULL, 0);
+		if (bytes>0) {
+			bytesRead += bytes;
+			fprintf(stderr,"recieved: %d bytes\n",bytesRead);
+		} else {
+			fprintf(stderr,"error sending %i\n",errno);
+			break;
+		}
 	}
 }
 

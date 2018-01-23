@@ -20,14 +20,14 @@ void initSender() {
 	broadcastPermission = 1;
 	if(setsockopt(sock, SOL_SOCKET, SO_BROADCAST, (void*) &broadcastPermission, sizeof(broadcastPermission)) < 0)
 		perror("failed to set socket options");
-}
-
-void sendNetData(packet_t* data) {
 	/* Construct local address structure */
 	memset(&broadcastAddr, 0, sizeof(broadcastAddr));   /* Zero out structure */
 	broadcastAddr.sin_family = AF_INET;                 /* Internet address family */
 	broadcastAddr.sin_addr.s_addr = inet_addr(broadcastIP);/* Broadcast IP address */
 	broadcastAddr.sin_port = htons(broadcastPort);         /* Broadcast port */
+}
+
+void sendNetData(packet_t* data) {
 	int bytesSent = 0;
 	while (bytesSent < sizeof(packet_t)) {
 		bytesSent += sendto(sock, &((char*)data)[bytesSent], sizeof(packet_t)-bytesSent, 0, (struct sockaddr *) &broadcastAddr, sizeof(broadcastAddr));
