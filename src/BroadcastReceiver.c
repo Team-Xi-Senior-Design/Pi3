@@ -25,7 +25,8 @@ void receiveNetData(packet_t * data) {
 			bytesRead += bytes;
 			fprintf(stderr,"recieved: %d bytes\n",bytesRead);
 		} else {
-			fprintf(stderr,"error sending %i\n",errno);
+			perror("error sending\n");
+			data->size = 0;
 			break;
 		}
 	}
