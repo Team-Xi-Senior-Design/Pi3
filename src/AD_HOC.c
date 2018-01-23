@@ -59,7 +59,7 @@ void* adhocThread(void* params)
 		switch(data.datatype)
 		{
 			default:
-				sendBluetoothData(&data);
+				//sendBluetoothData(&data);
 				write(1,data.data,data.size);
 				break;
 		}

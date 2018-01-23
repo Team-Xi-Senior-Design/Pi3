@@ -10,26 +10,22 @@
 #include "BroadcastReceiver.h"
 
 #define BROADCAST_PORT 25565
-#define MAX_PACKET_SIZE 1500
+#define MAX_PACKET_SIZE 500
 
-static int sock;                         /* Socket */
+static int sock;
 static struct sockaddr_in broadcastAddr; /* Broadcast Address */
 static unsigned short broadcastPort = BROADCAST_PORT;     /* Port */
 
 
 void receiveNetData(packet_t * data) {
-	int bytesRead = 0;
-	while (bytesRead < sizeof(packet_t)) {
-		int bytes = recvfrom(sock, &data[bytesRead], (sizeof(packet_t)-bytesRead)>MAX_PACKET_SIZE?MAX_PACKET_SIZE:(sizeof(packet_t)-bytesRead), 0, NULL, 0);
-		if (bytes>0) {
-			bytesRead += bytes;
-			fprintf(stderr,"recieved: %d bytes\n",bytesRead);
-		} else {
-			perror("error sending\n");
-			data->size = 0;
-			break;
-		}
+	int bytes = read(sock, data, sizeof(packet_t));
+	if (bytes>0) {
+		fprintf(stderr,"recieved: %d bytes\n",bytes);
+	} else {
+		perror("error receiving");
+		data->size = 0;
 	}
+	usleep(100);
 }
 
 void initReceiver() {
