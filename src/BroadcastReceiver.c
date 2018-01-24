@@ -18,14 +18,18 @@ static unsigned short broadcastPort = BROADCAST_PORT;     /* Port */
 
 
 void receiveNetData(packet_t * data) {
-	int bytes = read(sock, data, sizeof(packet_t));
-	if (bytes>0) {
-		fprintf(stderr,"recieved: %d bytes\n",bytes);
-	} else {
-		perror("error receiving");
-		data->size = 0;
-	}
-	usleep(100);
+	int numBytes = 0;
+	do
+	{
+		int bytes = read(sock, data, sizeof(packet_t));
+		if (bytes>0) {
+			numBytes += bytes;
+			fprintf(stderr,"recieved: %d bytes\n",numBytes);
+		} else {
+			perror("error receiving");
+		}
+		usleep(100);
+	} while (numBytes < sizeof(packet_t));
 }
 
 void initReceiver() {
