@@ -63,7 +63,8 @@ void* adhocThread(void* params)
 				write(1,data.data,data.size);
 				break;
 
-			default: break;
+			default:write(1,data.data,data.size);
+				break;
 		}
 	}
 }

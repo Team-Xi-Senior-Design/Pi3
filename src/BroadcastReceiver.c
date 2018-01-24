@@ -39,7 +39,12 @@ void receiveNetData(packet_t * data) {
 	while(bytesRead < sizeof(packet_t))
 	{
 		bytesRead += recvfrom(sock, &data[bytesRead], sizeof(packet_t)-bytesRead, 0, NULL, 0);
-		fprintf(stderr, "received: %d\n", bytesRead);
+		if(bytesRead > 0)
+		{
+			fprintf(stderr, "received: %d\n", bytesRead);
+		}else{
+			perror("error receiving");
+		}
 	}
 }
 
