@@ -37,6 +37,7 @@ void* handleBluetoothRecv(void* params)
 	while (1)
 	{
 		getBluetoothData(&receivedData);
+		printf("%d\n",receivedData.size);
 		switch(receivedData.datatype)
 		{
 			case OBDII_DATA:
@@ -45,12 +46,11 @@ void* handleBluetoothRecv(void* params)
 				if (voiceCMD())
 				{
 					processVoiceCommands(&receivedData);
-					//write(1,receivedData.data,receivedData.size);
+					broadcast(&receivedData);
 				}
 				else
 				{
 					broadcast(&receivedData);
-					//write(1,receivedData.data,receivedData.size);
 				}
 				break;
 		}
