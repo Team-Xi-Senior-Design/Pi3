@@ -46,7 +46,7 @@ void cleanupAD_HOC() {
  * @param:
  * @return:
  */
-void receive(packet_t* packet){
+void receiveAdhoc(packet_t* packet){
  	receiveNetData(packet);
 }
 
@@ -55,13 +55,15 @@ void* adhocThread(void* params)
 	packet_t data;
 	while (1)
 	{
-		receive(&data);
+		receiveAdhoc(&data);
 		switch(data.datatype)
 		{
-			default:
+			case VOICE_DATA:
 				//sendBluetoothData(&data);
 				write(1,data.data,data.size);
 				break;
+
+			default: break;
 		}
 	}
 }

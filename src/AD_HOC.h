@@ -25,7 +25,7 @@
 void broadcast(packet_t *);
 void initAD_HOC();
 void cleanupAD_HOC();
-void receive(packet_t *);
+void receiveAdhoc(packet_t *);
 void test();
 void* adhocThread(void*);
 
