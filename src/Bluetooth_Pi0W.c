@@ -46,12 +46,21 @@ void* handleBluetoothRecv(void* params)
 				write(1,receivedData.data,receivedData.size);
 				if (voiceCMD())
 				{
+					broadcast(&receivedData);
 					processVoiceCommands(&receivedData);
+<<<<<<< HEAD
 					//broadcast(&receivedData);
+=======
+					write(1,receivedData.data,receivedData.size);
+>>>>>>> 1081ba7360be508be10bb0c20e3348d4357d4d07
 				}
 				else
 				{
 					//broadcast(&receivedData);
+<<<<<<< HEAD
+=======
+					write(1,receivedData.data,receivedData.size);
+>>>>>>> 1081ba7360be508be10bb0c20e3348d4357d4d07
 				}
 				break;
 		}
