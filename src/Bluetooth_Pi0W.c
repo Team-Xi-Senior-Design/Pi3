@@ -65,8 +65,8 @@ void* handleBluetoothRecv(void* params)
  */
 void getBluetoothData(packet_t* data){
 	int bytesRead = 0;
-	while (bytesRead != sizeof(packet_t)) {
-		bytesRead = read(client, data, sizeof(packet_t));
+	while (bytesRead < sizeof(packet_t)) {
+		bytesRead += read(client, &((char*)data)[bytesRead], sizeof(packet_t) - bytesRead);
 	}
 }
 
