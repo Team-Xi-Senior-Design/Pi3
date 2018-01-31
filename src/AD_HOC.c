@@ -56,14 +56,15 @@ void* adhocThread(void* params)
 	while (1)
 	{
 		receiveAdhoc(&data);
+		fprintf(stderr, "Received ADHOC\n");
 		switch(data.datatype)
 		{
 			case VOICE_DATA:
-				//sendBluetoothData(&data);
-				write(1,data.data,data.size);
+				sendBluetoothData(&data);
+				//write(1,data.data,data.size);
 				break;
 
-			default:write(1,data.data,data.size);
+			default://write(1,data.data,data.size);
 				break;
 		}
 	}
