@@ -37,7 +37,6 @@ void* handleBluetoothRecv(void* params)
 	while (1)
 	{
 		getBluetoothData(&receivedData);
-		fprintf(stderr, "Received Bluetooth\n");
 		switch(receivedData.datatype)
 		{
 			case OBDII_DATA:
@@ -66,9 +65,8 @@ void* handleBluetoothRecv(void* params)
  */
 void getBluetoothData(packet_t* data){
 	int bytesRead = 0;
-	memset(data, 0, sizeof(packet_t));
-	while (bytesRead < sizeof(packet_t)) {
-		bytesRead += read(client, &((char*)data)[bytesRead], sizeof(packet_t)-bytesRead);
+	while (bytesRead != sizeof(packet_t)) {
+		bytesRead = read(client, data, sizeof(packet_t));
 	}
 }
 
