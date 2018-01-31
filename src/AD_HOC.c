@@ -56,6 +56,9 @@ void* adhocThread(void* params)
 	while (1)
 	{
 		receiveAdhoc(&data);
+		if (data.size > BUFFER_SIZE) {
+			fprintf(stderr,"sadboi in adhocThead\n");
+		}
 		switch(data.datatype)
 		{
 			case VOICE_DATA:
