@@ -52,7 +52,7 @@ void* handleBluetoothRecv(void* params)
 				if (voiceCMD())
 				{
 					broadcast(&receivedData);
-					processVoiceCommands(&receivedData);
+					//processVoiceCommands(&receivedData);
 				}
 				else
 				{
