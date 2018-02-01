@@ -24,7 +24,8 @@
 #include <bluetooth/hci.h>
 #include <bluetooth/hci_lib.h>
 
-static char* BluetoothAddr = "B8:27:EB:66:3C:01";
+//static char* BluetoothAddr = "B8:27:EB:66:3C:01";
+static char* BluetoothAddr = "B8:27:EB:6E:73:23";
 #define CHANNEL_NUMBER 1
 static int sock;
 static int client;
