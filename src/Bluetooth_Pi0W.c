@@ -24,8 +24,8 @@
 #include <bluetooth/hci.h>
 #include <bluetooth/hci_lib.h>
 
-//static char* BluetoothAddr = "B8:27:EB:66:3C:01";
-static char* BluetoothAddr = "B8:27:EB:6E:73:23";
+static char* BluetoothAddr = "B8:27:EB:66:3C:01";
+//static char* BluetoothAddr = "B8:27:EB:6E:73:23";
 #define CHANNEL_NUMBER 1
 static int sock;
 static int client;
@@ -67,9 +67,8 @@ void* handleBluetoothRecv(void* params)
  */
 void getBluetoothData(packet_t* data){
 	int bytesRead = 0;
-	while (bytesRead < sizeof(packet_t)) {
-		bytesRead += read(client, &((char*)data)[bytesRead], sizeof(packet_t) - bytesRead);
-	}
+	bytesRead = read(client, data, sizeof(packet_t));
+
 }
 
 /*
@@ -79,9 +78,7 @@ void getBluetoothData(packet_t* data){
  */
 void sendBluetoothData(packet_t* data){
 	int dataWritten = 0;
-	while (dataWritten < sizeof(packet_t)) {
-		dataWritten += write(client,&((char*)data)[dataWritten],sizeof(packet_t)-dataWritten);
-	}
+	dataWritten = write(client, data, sizeof(packet_t));
 }
 
 /*
