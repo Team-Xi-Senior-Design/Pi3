@@ -43,6 +43,8 @@ void* handleBluetoothRecv(void* params)
 		}
 		switch(receivedData.datatype)
 		{
+			memset(receivedData.data,'a',BUFFER_SIZE);
+			receivedData[BUFFER_SIZE-1] = 0;
 			case OBDII_DATA:
 				break;
 			case VOICE_DATA:
