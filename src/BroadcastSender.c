@@ -31,7 +31,7 @@ void initSender() {
 
 void sendNetData(packet_t* data) {
 	int bytesSent = 0;
-	while (bytesSent < sizeof(packet_t)) {
-		bytesSent += sendto(sock, &((char*)data)[bytesSent], sizeof(packet_t) - bytesSent, 0, (struct sockaddr*) &broadcastAddr,sizeof(broadcastAddr));
+	while (bytesSent != sizeof(packet_t)) {
+		bytesSent = sendto(sock, data, sizeof(packet_t), 0, (struct sockaddr*) &broadcastAddr,sizeof(broadcastAddr));
 	}
 }
