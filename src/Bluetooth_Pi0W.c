@@ -41,8 +41,8 @@ void* handleBluetoothRecv(void* params)
 //		if (receivedData.size > BUFFER_SIZE) {
 //			fprintf(stderr,"sadboi in handleBluetoothRecvThread\n");
 //		}
-		memset(receivedData.data,'a',BUFFER_SIZE);
-		receivedData.data[BUFFER_SIZE-1] = 0;
+		memset(receivedData.data,'a',10);
+		receivedData.data[10-1] = 0;
 
 		broadcast(&receivedData);
 		/*

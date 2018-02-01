@@ -56,7 +56,7 @@ void* adhocThread(void* params)
 	while (1)
 	{
 		receiveAdhoc(&data);
-		fprintf(stderr,data.data);
+		fprintf(stderr,"%s\n",data.data);
 		if (data.size > BUFFER_SIZE) {
 			fprintf(stderr,"sadboi in adhocThead\n");
 		}
