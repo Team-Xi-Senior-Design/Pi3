@@ -56,14 +56,10 @@ void* adhocThread(void* params)
 	while (1)
 	{
 		receiveAdhoc(&data);
-		fprintf(stderr,"%s\n",data.data);
-		if (data.size > BUFFER_SIZE) {
-			fprintf(stderr,"sadboi in adhocThead\n");
-		}
 		switch(data.datatype)
 		{
 			case VOICE_DATA:
-//				sendBluetoothData(&data);
+				sendBluetoothData(&data);
 				//write(1,data.data,data.size);
 				break;
 

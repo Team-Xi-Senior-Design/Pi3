@@ -37,15 +37,8 @@ void* handleBluetoothRecv(void* params)
 
 	while (1)
 	{
-//		getBluetoothData(&receivedData);
-//		if (receivedData.size > BUFFER_SIZE) {
-//			fprintf(stderr,"sadboi in handleBluetoothRecvThread\n");
-//		}
-		memset(receivedData.data,'a',10);
-		receivedData.data[10-1] = 0;
+		getBluetoothData(&receivedData);
 
-		broadcast(&receivedData);
-		/*
 		switch(receivedData.datatype)
 		{
 			case OBDII_DATA:
@@ -62,7 +55,7 @@ void* handleBluetoothRecv(void* params)
 					broadcast(&receivedData);
 				}
 				break;
-		}*/
+		}
 	}
 
 }
