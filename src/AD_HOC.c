@@ -56,6 +56,8 @@ void* adhocThread(void* params)
 	while (1)
 	{
 		receiveAdhoc(&data);
+//		printf("%d\n", data.size);
+//		printf("%s\n",data.data);
 		switch(data.datatype)
 		{
 			case VOICE_DATA:

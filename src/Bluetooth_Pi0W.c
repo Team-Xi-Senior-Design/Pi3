@@ -38,7 +38,6 @@ void* handleBluetoothRecv(void* params)
 	while (1)
 	{
 		getBluetoothData(&receivedData);
-
 		switch(receivedData.datatype)
 		{
 			case OBDII_DATA:
