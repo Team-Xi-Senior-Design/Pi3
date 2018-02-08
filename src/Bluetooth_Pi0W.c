@@ -8,6 +8,7 @@
 #include "NetworkPacket.h"
 #include "VoiceCommands.h"
 #include "Button_ISR.h"
+#include "AudioProcessing.h"
 
 #include <netinet/in.h>
 #include <arpa/inet.h>
@@ -17,7 +18,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-
+#include <time.h>
 
 #include <bluetooth/bluetooth.h>
 #include <bluetooth/rfcomm.h>
@@ -34,9 +35,11 @@ static int client;
 void* handleBluetoothRecv(void* params)
 {
 	packet_t receivedData;
-
-	while (1)
+	clock_t start = clock();
+	clock_t delta = 0;
+	while ((((float)delta)/CLOCKS_PER_SEC) < 6)
 	{
+		printf("%f\n",((float)delta)/CLOCKS_PER_SEC);
 		getBluetoothData(&receivedData);
 		switch(receivedData.datatype)
 		{
@@ -46,7 +49,8 @@ void* handleBluetoothRecv(void* params)
 //				write(1,receivedData.data,receivedData.size);
 				if (voiceCMD())
 				{
-					broadcast(&receivedData);
+					processData(&receivedData);
+				//	broadcast(&receivedData);
 					//processVoiceCommands(&receivedData);
 				}
 				else
@@ -55,8 +59,9 @@ void* handleBluetoothRecv(void* params)
 				}
 				break;
 		}
+		delta = clock()-start;
 	}
-
+	printf("%s\n",getWords());
 }
 
 /*

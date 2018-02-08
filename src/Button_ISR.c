@@ -70,7 +70,7 @@ void lobbySel(int right){
  */
 bool voiceCMD()
 {
-	return 0;
+	return 1;
 }
 
 /*
