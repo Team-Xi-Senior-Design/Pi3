@@ -5,22 +5,39 @@
 
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 
 #include "main.h"
 #include "AD_HOC.h"
 #include "Bluetooth_Pi0W.h"
 #include <pthread.h>
 
+void* obdiiThread(void* params) {
+	packet_t packet;
+	obd2data_t *obddata;
+	obddata = (obd2data_t*)&packet.data;
+	packet.datatype = OBDII_DATA;
+	packet.size = sizeof(obd2data_t);
+	while (1) {
+		usleep(1000);
+		obddata->fuelLevel = getFuelLevel();
+		obddata->speed = getSpeed();
+		obddata->rpm = getRPM();
+		sendBluetoothData(&packet);
+		printf("data sent %d %d %d\n",obddata->fuelLevel, obddata->speed, obddata->rpm);
+	}
+}
+
 int main(int argc, char* argv[]){
-	initAD_HOC();
+//	initAD_HOC();
 	initBluetooth_Pi0W();
-	//initOBDII();
-	pthread_t adhoc,bluepi;
+	initOBDII();
+	pthread_t adhoc,bluepi,obdii;
 
-	pthread_create(&adhoc, NULL, adhocThread, NULL);
+//	pthread_create(&adhoc, NULL, adhocThread, NULL);
 //	pthread_create(&bluepi, NULL, handleBluetoothRecv, NULL);
-
-	pthread_join(adhoc, NULL);
+	pthread_create(&obdii,NULL, obdiiThread, NULL);
+	pthread_join(obdii, NULL);
 	closeBluetooth_Pi0W();
 	/**
 	initOBDII();
