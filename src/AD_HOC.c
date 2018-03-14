@@ -55,7 +55,11 @@ void* adhocThread(void* params)
 	packet_t data;
 	while (1)
 	{
-		receiveAdhoc(&data);
+		data.datatype=VOICE_DATA;
+		memset(data.data,'a',10);
+		data.data[10] = 0;
+		data.size = 10;
+//		receiveAdhoc(&data);
 //		printf("%d\n", data.size);
 //		printf("%s\n",data.data);
 		switch(data.datatype)

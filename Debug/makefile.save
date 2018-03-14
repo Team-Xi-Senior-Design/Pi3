@@ -1,0 +1,27 @@
+IDIR =../include
+CC = g++
+CFLAGS = -I$(IDIR) -Ibluetooth -I/usr/local/include -I/usr/local/include/sphinxbase -I/usr/local/include/pocketsphinx -I/usr/local/include -I/usr/local/include/sphinxbase
+
+ODIR = obj
+
+LDIR =../lib
+
+LIBS = -L/usr/local/lib  -lpocketsphinx -lsphinxbase -lasound -lpthread -lbluetooth -lm
+
+_DEPS = main.h
+DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
+
+
+_OBJ = AD_HOC.o Bluetooth_Phone.o Bluetooth_Pi0W.o BroadcastReceiver.o BroadcastSender.o Button_ISR.o main.o OBDII.o SerialDriver.o VoiceCommands.o
+OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
+
+$(ODIR)/%.o: ../src/%.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+all : Bike
+
+Bike : $(OBJ)
+	$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
+
+clean:
+	rm -f $(ODIR)/*.o *~ core $(INCDIR)/*~

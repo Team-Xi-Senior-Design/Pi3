@@ -18,7 +18,7 @@ int main(int argc, char* argv[]){
 	pthread_t adhoc,bluepi;
 
 	pthread_create(&adhoc, NULL, adhocThread, NULL);
-//	pthread_create(&bluepi, NULL, handleBluetoothRecv, NULL);
+	pthread_create(&bluepi, NULL, handleBluetoothRecv, NULL);
 
 	pthread_join(adhoc, NULL);
 	closeBluetooth_Pi0W();
