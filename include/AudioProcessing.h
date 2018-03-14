@@ -5,6 +5,6 @@
 
 void initAudioProcessing();
 void processData(packet_t *);
-char* getWords();
+char const* getWords();
 
 #endif

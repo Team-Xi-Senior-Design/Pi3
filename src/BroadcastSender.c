@@ -12,7 +12,7 @@
 
 static int sock;				/* Socket */
 static struct sockaddr_in broadcastAddr;	/* Broadcast address */
-static char *broadcastIP = "169.254.255.255";	/* IP broadcast address */
+static char broadcastIP[] = {'1','6','9','.','2','5','4','.','2','5','5','.','2','5','5'};	/* IP broadcast address */
 static unsigned short broadcastPort = 25565;    /* Server port */
 static int broadcastPermission;          	/* Socket opt to set permission to broadcast */
 

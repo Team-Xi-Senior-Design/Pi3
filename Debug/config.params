@@ -1,0 +1,5 @@
+-cmn live
+-dict /usr/local/share/pocketsphinx/model/en-us/cmudict-en-us.dict
+-hmm /usr/local/share/pocketsphinx/model/en-us/en-us
+-input_endian little
+-lm /usr/local/share/pocketsphinx/model/en-us/en-us.lm.bin

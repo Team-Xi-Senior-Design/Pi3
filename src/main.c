@@ -14,17 +14,23 @@
 #include <pthread.h>
 
 
-/*
+
 int main(int argc, char* argv[]){
 //	initAD_HOC();
-//	initBluetooth_Pi0W();
-//	initAudioProcessing();
-//	packet_t packet;
-//	for ( int i = 0; i < 20; i++) {
-//		getBluetoothData(&packet);
-//		processData(&packet);
-//	}
-//	printf("%s\n",getWords());
+	initBluetooth_Pi0W();
+	initAudioProcessing();
+	packet_t packet;
+	for ( int i = 0; 1; i++) {
+		getBluetoothData(&packet);
+		processData(&packet);
+		//char const * words = getWords();
+		//if (words != NULL)
+		//{
+		//	printf("%s\n",words);
+		//}
+
+	}
+
 
 	//initOBDII();
 //	pthread_t adhoc,bluepi;
@@ -77,5 +83,3 @@ int main(int argc, char* argv[]){
 
 	return (0);
 }
-
-*/

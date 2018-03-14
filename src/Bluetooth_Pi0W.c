@@ -25,7 +25,7 @@
 #include <bluetooth/hci.h>
 #include <bluetooth/hci_lib.h>
 
-static char* BluetoothAddr = "B8:27:EB:66:3C:01";
+static char BluetoothAddr[] = "B8:27:EB:66:3C:01";
 //static char* BluetoothAddr = "B8:27:EB:6E:73:23";
 #define CHANNEL_NUMBER 1
 static int sock;
@@ -104,7 +104,8 @@ void initBluetooth_Pi0W(){
 	//printf("Local device %s\n", batostr(&di.bdaddr));
 
 	laddr.rc_family = AF_BLUETOOTH;
-	laddr.rc_bdaddr = *BDADDR_ANY;
+	bdaddr_t temp = {0,0,0,0,0,0};
+	laddr.rc_bdaddr = temp;
 	laddr.rc_channel = 1;
 
  	raddr.rc_family = AF_BLUETOOTH;
@@ -126,7 +127,7 @@ void initBluetooth_Pi0W(){
 
 	//printf("Remote device %s\n", argv[1]);
 
-	client = accept(sock, (struct sockaddr *)&raddr, &opt);
+	client = accept(sock, (struct sockaddr *)&raddr,(socklen_t*) &opt);
 
 /*	// Connect to the Bluetooth Address using RFCOMM
 	if(connect(sock, (struct sockaddr *)&raddr, sizeof(raddr)) < 0) {
