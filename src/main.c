@@ -1,3 +1,4 @@
+
 /* Author: MSOE Team Xi Senior Design 2017
  * Date: 12/2017
  * Description: This is the main c file for the bike side controller
@@ -5,16 +6,30 @@
 
 #include <stdlib.h>
 #include <string.h>
-
+#include "Button_ISR.h"
+//#include "Button_ISR.c"
 #include "main.h"
 #include "AD_HOC.h"
 #include "Bluetooth_Pi0W.h"
 #include <pthread.h>
 
 int main(int argc, char* argv[]){
-	initAD_HOC();
-	initBluetooth_Pi0W();
-	//initOBDII();
+	//initAD_HOC();
+        setupIO();
+	while(1){
+	char*  directions[] = {"Up","Left","Down","Right", "Center"};
+
+		int i, btn, g;
+		for(i = 2; i <= 6; i++){
+		 	btn=getIOPin(i);
+			if (btn) printf("%s was pressed \n",directions[i-2]);
+			
+		}
+
+
+	}
+	//initBluetooth_Pi0W();
+	initOBDII();
 	pthread_t adhoc,bluepi;
 
 	pthread_create(&adhoc, NULL, adhocThread, NULL);

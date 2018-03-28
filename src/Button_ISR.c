@@ -11,9 +11,13 @@
 #include <fcntl.h>
 #include <sys/mman.h>
 #include <unistd.h>
-
-#define BCM2708_PERI_BASE        0X20000000
-#define GPIO_BASE            (BCM2708_PERI_BASE + 0X00200000)
+#define GPIO_UP       2
+#define GPIO_LEFT     3
+#define GPIO_DOWN     4
+#define GPIO_RIGHT    5
+#define GPIO_CENTER   6
+#define BCM2708_PERI_BASE        0X3F000000
+#define GPIO_BASE            (BCM2708_PERI_BASE + 0X200000)
 
 #define PAGE_SIZE            (4*1024)
 #define BLOCK_SIZE            (4*1024)
@@ -22,7 +26,7 @@ int mem_fd;
 void* gpio_map;
 
 volatile unsigned *gpio;
-
+//
 #define INP_GPIO(g) *(gpio+((g)/10)) &= ~(7<<(((g)%10)*3))
 #define OUT_GPIO(g) *(gpio*((g)/10)) |= (1<<(((g)%10)*3))
 #define SET_GPIO_ALT(g,a) *(gpio+(((g)/10))) |= (((a)<=3?>(a)+4:(a)==4?3:2)<<(((g)%10)*3))
@@ -54,7 +58,23 @@ void setupIO()
     gpio = (volatile unsigned*)gpio_map;
 }
 
-/*
+/**
+ * gets the value from the given gpio pin;
+ * @param   gpio pin number
+ * @return  1 if pin is high else 0
+ */
+int getIOPin(int portNumber){
+	int retVal = 0;
+	
+	if ((portNumber >= 2)&&(portNumber<=26)){
+		// active low;
+		(GET_GPIO(portNumber)) ? (retVal = 0) : (retVal = 1);	
+	}
+	GPIO_CLR;
+	return retVal;
+}
+
+/**
  * Description:
  * @param:
  * @return:
