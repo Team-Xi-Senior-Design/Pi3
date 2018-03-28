@@ -1,3 +1,4 @@
+-cmn live
 -agc none
 -agcthresh 2.000000e+00
 -allphone_ci no
@@ -9,7 +10,6 @@
 -bestpath yes
 -bestpathlw 9.500000e+00
 -ceplen 13
--cmn batch
 -cmninit 41.00,-5.29,-0.12,5.09,2.48,-4.07,-1.37,-1.78,-5.08,-2.05,-6.45,-1.42,1.17
 -compallsen no
 -debug 0

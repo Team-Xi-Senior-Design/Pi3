@@ -11,7 +11,7 @@ sudo wget -v -O pocketsphinx.tar.gz https://sourceforge.net/projects/cmusphinx/f
 tar -xzvf sphinxbase.tar.gz
 tar -xzvf pocketsphinx.tar.gz
 
-sudo apt-get install bison libasound2-dev swig python-dev gcc atuomake autoconf libtool libpulse-dev -y
+sudo apt-get install bison libasound2-dev swig python-dev gcc automake autoconf libtool libpulse-dev -y
 
 cd sphinxbase-5prealpha
 ./autogen.sh
