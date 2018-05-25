@@ -9,7 +9,6 @@
 #include "main.h"
 #include "AD_HOC.h"
 #include "Bluetooth_Pi0W.h"
-#include "AudioProcessing.h"
 
 #include <pthread.h>
 
@@ -18,11 +17,18 @@
 int main(int argc, char* argv[]){
 //	initAD_HOC();
 	initBluetooth_Pi0W();
-	initAudioProcessing();
-	packet_t packet;
+	char buffer[2048];
+	printf("done with setup\n");
 	for ( int i = 0; 1; i++) {
-		getBluetoothData(&packet);
-		processData(&packet);
+		int bytesRead = getBluetoothAudio(buffer,2048);
+		printf("echoing packet %d bytes\n",bytesRead);
+		if(bytesRead < 0)
+		{
+			printf("sending asdf\n");
+			sendBluetoothAudio("asdf", 4);
+		} else {
+			sendBluetoothAudio(buffer, bytesRead);
+		}
 		//char const * words = getWords();
 		//if (words != NULL)
 		//{

@@ -12,7 +12,7 @@ _DEPS = main.h
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
 
-_OBJ = AD_HOC.o AudioProcessing.o Bluetooth_Phone.o Bluetooth_Pi0W.o BroadcastReceiver.o BroadcastSender.o Button_ISR.o main.o OBDII.o SerialDriver.o VoiceCommands.o
+_OBJ = AD_HOC.o Bluetooth_Phone.o Bluetooth_Pi0W.o BroadcastReceiver.o BroadcastSender.o Button_ISR.o main.o OBDII.o SerialDriver.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 $(ODIR)/%.o: ../src/%.c $(DEPS)

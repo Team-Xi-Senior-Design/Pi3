@@ -11,7 +11,6 @@
  * External Includes                       *
  *******************************************/
 #include "AD_HOC.h"
-#include "VoiceCommands.h"
 #include <stdbool.h>
 
 /*******************************************

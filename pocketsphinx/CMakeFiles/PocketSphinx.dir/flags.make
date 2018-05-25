@@ -6,5 +6,5 @@ CXX_FLAGS = -fPIC
 
 CXX_DEFINES = -DBUILDING_NODE_EXTENSION -DPocketSphinx_EXPORTS
 
-CXX_INCLUDES = -I/home/teamxi/pi3stuff/include -I/usr/local/include/sphinxbase -I/usr/local/include -I/usr/local/include/pocketsphinx 
+CXX_INCLUDES = -I/home/pi/pi3/include -I/usr/local/include/sphinxbase -I/usr/local/include -I/usr/local/include/pocketsphinx 
 

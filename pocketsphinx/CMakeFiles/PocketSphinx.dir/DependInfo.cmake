@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/teamxi/pi3stuff/pocketsphinx/ps.cpp" "/home/teamxi/pi3stuff/pocketsphinx/CMakeFiles/PocketSphinx.dir/ps.cpp.o"
+  "/home/pi/pi3/pocketsphinx/ps.cpp" "/home/pi/pi3/pocketsphinx/CMakeFiles/PocketSphinx.dir/ps.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

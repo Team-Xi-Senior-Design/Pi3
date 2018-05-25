@@ -10,7 +10,6 @@
 /*******************************************
  * External Includes                       *
  *******************************************/
-#include "VoiceCommands.h"
 #include "NetworkPacket.h"
 
 /*******************************************
@@ -18,6 +17,8 @@
  *******************************************/
 void getBluetoothData(packet_t*);
 void sendBluetoothData(packet_t*);
+int getBluetoothAudio(char*,int);
+void sendBluetoothAudio(const char*,int);
 void initBluetooth_Pi0W(void);
 void closeBluetooth_Pi0W(void);
 void* handleBluetoothRecv(void*);

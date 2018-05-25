@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/teamxi/pi3stuff/sphinxbase/sb.cpp" "/home/teamxi/pi3stuff/sphinxbase/CMakeFiles/SphinxBase.dir/sb.cpp.o"
+  "/home/pi/pi3/sphinxbase/sb.cpp" "/home/pi/pi3/sphinxbase/CMakeFiles/SphinxBase.dir/sb.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
